@@ -15,7 +15,16 @@ fs.writeFile("index.html", html, (err, file) => {
 
 function makeHtml(pigeons) {
     let html = "<!doctype html><title>Pigeon Pictures</title><meta charset=\"utf-8\">"
-    html += `<style>body { background: url(${pigeons[0]}); background-size: cover; text-align: center }</style>`
+    html += `<style>
+        body {
+            background: url(${pigeons[0]});
+            background-size: cover;
+            text-align: center
+        }
+        img {
+            max-width: 100vw
+        }
+    </style>`
     for (let link of pigeons) {
         html += `<img alt="pigeon" src="${link}">`
     }
