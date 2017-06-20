@@ -1,9 +1,13 @@
 import settings
 import urllib.request
+from random import randint
 
 
 def makeRequestUrl(settings):
-    return "http://www.google.com"
+    return "https://www.googleapis.com/customsearch/v1" \
+           "?q=pigeon&cx={}&imgType=photo&dateRestrict=d{}" \
+           "&safe=medium&searchType=image&fields=items%2Flink&key={}" \
+           .format(settings.CSE_ID, randint(0, 100), settings.API_KEY)
 
 request_url = makeRequestUrl(settings)
 
